@@ -15,4 +15,6 @@ for idx, item in enumerate(results["items"]):
 
     saved_track_ids.append(track_id)
 
-print(saved_track_ids)
+features = sp.audio_features(tracks=saved_track_ids)
+
+print(features)

@@ -1,0 +1,11 @@
+.slider.slider-horizontal .slider-handle {
+    background: #327f4e;
+}
+  
+.slider.slider-horizontal .slider-selection{
+    background: #54D483;
+}
+  
+.slider-tick.in-selection {
+    background: #54D483;
+}

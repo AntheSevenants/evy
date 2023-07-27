@@ -4,5 +4,37 @@
     {{ super() }}
 {% endblock %}
 {% block content %}
-    welcome to mario kart
+<div class="row justify-content-md-center mb-4">
+    <div class="col-2">
+        <h3>Select BPM</h3>
+    </div>
+    <div class="col-6" id="sliderContainer">
+        <input id="slider" class="w-100"></div>
+    </div>
+</div>
+<div class="row justify-content-center mt-4">
+    <div class="col-4 text-center">
+        <button class="btn fs-4 px-4 py-2" type="button" style="background: #54D483;">
+            <i class="bi bi-spotify"></i> Log in with Spotify
+        </button>
+    </div>
+</div>
+<script>
+    const sliderContainer = document.querySelector("#sliderContainer");
+    const sliderWidth = parseInt(sliderContainer.offsetWidth) - 20;
+
+    console.log(sliderWidth);
+
+    document.querySelector("#slider").style.width = `${sliderWidth}px`;
+
+    new Slider("#slider", {
+        "ticks": [100, 120, 140, 160, 180],
+        "ticks_labels": ["100", "120", "140","160", "180"],
+        "min": 100,
+        "max": 180,
+        "step": 10,
+        "tooltip": "hide",
+        "value": 120
+    });
+</script>
 {% endblock %}

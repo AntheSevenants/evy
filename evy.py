@@ -1,7 +1,9 @@
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 
-MAX_LOOPS = 10
+MAX_TRACKS = 500
+USER_LIMIT = 50
+FEATURES_LIMIT = 100
 
 scope = "user-library-read"
 
@@ -26,11 +28,11 @@ def extract_info(results):
     return saved_track_ids, names
 
 def get_user_library():
-    results = sp.current_user_saved_tracks(limit=50)
+    results = sp.current_user_saved_tracks(limit=USER_LIMIT)
 
     saved_track_ids, names = extract_info(results)
 
-    loops = 0
+    track_count = USER_LIMIT
     while results['next']:
         results = sp.next(results)
 
@@ -38,14 +40,14 @@ def get_user_library():
         saved_track_ids += saved_track_ids_inner
         names += names_inner
 
-        loops += 1
+        track_count += USER_LIMIT
 
-        if loops >= MAX_LOOPS:
+        if track_count >= MAX_TRACKS:
             return saved_track_ids, names
             
 saved_track_ids, names = get_user_library()
 
-saved_track_ids_chunks = chunks(saved_track_ids, 50)
+saved_track_ids_chunks = chunks(saved_track_ids, 100)
 
 for outer_idx, saved_track_ids in enumerate(saved_track_ids_chunks):
     features = sp.audio_features(tracks=saved_track_ids)

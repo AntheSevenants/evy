@@ -13,18 +13,18 @@
     {% endblock %}
 </head>
 <body>
-    <header class="d-flex flex-wrap flex-column align-content-center mb-4 py-3 border-bottom text-center" style="background-color: #54D483;">
-        <a href="/" class="d-flex align-items-center pb-1 mb-md-0 me-md-auto link-body-emphasis text-decoration-none text-white">
-          <span class="fs-2 lh-sm" style="letter-spacing: 2px;">🏃‍♀️🎵 evy 🎶🏃‍♂️</span>
-        </a>
-      </header>
-    <main class="container">
-        {% block content %}
-        {% endblock %}
-    </main>
-    <footer class="container">
-        {% block footer %}
-        {% endblock %}
-    </footer>
+    <div class="container-fluid h-100">
+        <div class="row h-100">
+            <header class="col-4 text-center align-content-center d-flex flex-wrap justify-content-around" style="background: #54D483;">
+                <div class="fs-1 lh-sm" style="letter-spacing: 2px;">🏃‍♀️🎵 evy 🎶🏃‍♂️</div>
+            </header>
+            <main class="col-8 h-100 d-flex flex-column justify-content-center">
+                <div class="align-content-center">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </main>
+        </div>
+    </div>
 </body>
 </html>

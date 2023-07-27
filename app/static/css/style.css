@@ -1,3 +1,7 @@
+html, body {
+    height: 100%;
+}
+
 .slider.slider-horizontal .slider-handle {
     background: #327f4e;
 }

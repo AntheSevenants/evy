@@ -161,3 +161,4 @@ cython_debug/
 
 # evy
 credentials.json
+start.sh

@@ -45,5 +45,7 @@ def do():
     # Create playlist
     playlist_url, track_count = evy.spotify.create_playlist(sp, session["bpm"])
 
+    max_songs = evy.spotify.MAX_TRACKS
+
     return render_template('do.html', playlist_url=playlist_url,
-                           track_count=track_count, bpm=session["bpm"])
+                           track_count=track_count, bpm=session["bpm"], max_songs=max_songs)

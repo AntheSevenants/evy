@@ -2,7 +2,7 @@ import os
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 
-MAX_TRACKS = os.environ["MAX_TRACKS"]
+MAX_TRACKS = int(os.environ["MAX_TRACKS"])
 USER_LIMIT = 50
 FEATURES_LIMIT = 100
 

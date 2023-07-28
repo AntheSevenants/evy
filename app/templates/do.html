@@ -8,13 +8,13 @@
     <div class="col-8">
         <h3>Playlist created</h3>
     </div>
-    <div class="col-8 pt-4 text-primary">
+    <div class="col-8 pt-4">
         {{ track_count }} songs around {{ bpm }} BPM were found and added to your running playlist. Only your 500 most recent liked songs are taken into account.
     </div>
 </div>
 <div class="row justify-content-center mt-4">
     <div class="col-4 text-center">
-        <a class="btn fs-4 px-4 py-2" href="{{ playlist_link }}" style="background: #54D483;">
+        <a class="btn fs-4 px-4 py-2" href="{{ playlist_url }}" target="_blank" style="background: #54D483;">
             <i class="bi bi-spotify pe-2"></i> View your playlist
         </a>
     </div>

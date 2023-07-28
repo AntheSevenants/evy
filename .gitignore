@@ -162,3 +162,6 @@ cython_debug/
 # evy
 credentials.json
 start.sh
+
+# docker
+docker-compose*.yml

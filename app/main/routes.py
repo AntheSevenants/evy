@@ -2,7 +2,6 @@ import os
 import evy.spotify
 
 from flask import session, redirect, url_for, render_template, request, send_file, current_app, Response
-from flask_session import Session
 from . import main
 
 @main.route('/')

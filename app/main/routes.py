@@ -12,3 +12,13 @@ def index():
     """
 
     return render_template('index.html')
+
+@main.route('/do', methods = ["GET", "POST"])
+def do():
+    if request.method != "POST":
+        return "This endpoint only accepts POST requests."
+    
+    if not "bpm" in request.form:
+        return "Malformed POST request."
+
+    return render_template('do.html')

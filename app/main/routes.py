@@ -37,14 +37,13 @@ def do():
     if not auth_manager.validate_token(cache_handler.get_cached_token()):
         # Step 1. Display sign in link when no token
         auth_url = auth_manager.get_authorize_url()
-        return f'<h2><a href="{auth_url}">Sign in</a></h2>'
+        return redirect(auth_url)
 
     # Step 3. Signed in, display data
-    spotify = evy.spotify.create_spotipy(auth_manager)
-    return f'<h2>Hi {spotify.me()["display_name"]}, ' \
-           f'<small><a href="/sign_out">[sign out]<a/></small></h2>' \
-           f'<a href="/playlists">my playlists</a> | ' \
-           f'<a href="/currently_playing">currently playing</a> | ' \
-        f'<a href="/current_user">me</a>' \
+    sp = evy.spotify.create_spotipy(auth_manager)
+    
+    # Create playlist
+    playlist_url, track_count = evy.spotify.create_playlist(sp, session["bpm"])
 
-    return render_template('do.html')
+    return render_template('do.html', playlist_url=playlist_url,
+                           track_count=track_count, bpm=session["bpm"])

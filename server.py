@@ -9,6 +9,12 @@ args = parser.parse_args()
 
 debug = args.debug
 
+environment_variables = [ "SPOTIPY_CLIENT_ID", "SPOTIPY_CLIENT_SECRET", "SPOTIPY_REDIRECT_URI", "MAX_TRACKS" ]
+
+for environment_variable in environment_variables:
+	if not environment_variable in os.environ:
+		raise Exception(f"Environment variable '{environment_variable}' missing")
+
 app = create_app(debug=debug)
 
 if debug:

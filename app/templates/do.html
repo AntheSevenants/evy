@@ -9,9 +9,14 @@
         <h3>Playlist created</h3>
     </div>
     <div class="col-8 pt-4">
-        {{ track_count }} songs around {{ bpm }} BPM were found and added to your running playlist. Only your {{ max_songs }} most recent liked songs are taken into account.
+        {% if track_count != 0 %}
+            {{ track_count }} songs around {{ bpm }} BPM were found and added to your running playlist. Only your {{ max_songs }} most recent liked songs are taken into account.
+        {% else %}
+            Unfortunately, no tracks with a BPM of {{ bpm }} were found in your library. <a href="/">Try a different BPM</a>, or add more songs to your library.
+        {% endif %}
     </div>
 </div>
+{% if track_count != 0 %}
 <div class="row justify-content-center mt-4">
     <div class="col-4 text-center">
         <a class="btn fs-4 px-4 py-2" href="{{ playlist_url }}" target="_blank" style="background: #54D483;">
@@ -19,4 +24,5 @@
         </a>
     </div>
 </div>
+{% endif %}
 {% endblock %}

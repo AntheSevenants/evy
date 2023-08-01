@@ -55,6 +55,10 @@ def get_user_library(sp):
         if track_count >= MAX_TRACKS:
             return saved_track_ids, names
         
+    # Non-power users do not exceed the max number of tracks...
+    # We return nothing otherwise, so this return is needed
+    return saved_track_ids, names
+        
 def create_playlist(sp, bpm_lower):
     user_id = sp.me()["id"]
 

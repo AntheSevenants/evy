@@ -48,3 +48,7 @@ def do():
 
     return render_template('do.html', playlist_url=playlist_url,
                            track_count=track_count, bpm=session["bpm"], max_songs=max_songs)
+
+@main.route('/privacy')
+def privacy():
+    return render_template('privacy.html')

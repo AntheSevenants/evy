@@ -5,19 +5,19 @@
 {% endblock %}
 {% block content %}
 <form method="POST" action="/do">
-    <div class="row justify-content-md-center mb-4">
-        <div class="col-2">
+    <div class="row justify-content-center mb-4">
+        <div class="col-lg-2 col-md-8 col-12 text-center text-lg-start py-lg-0 pb-2">
             <h3>Select <abbr title="Beats Per Minute">BPM</abbr></h3>
         </div>
-        <div class="col-6" id="sliderContainer">
+        <div class="col-lg-6 col-md-7 col-8" id="sliderContainer">
             <input id="slider" class="w-100">
         </div>
-        <div class="col-8 pt-4 text-secondary">
+        <div class="col-lg-8 col-md-8 col-12 pt-lg-4 pt-2 text-secondary">
             120 BPM is recommended for most people. Select 160 BPM or more for sizeable efforts.
         </div>
     </div>
     <div class="row justify-content-center mt-4">
-        <div class="col-4 text-center">
+        <div class="col-lg-6 col-md-6 col-10 text-center">
             <button class="btn fs-4 px-4 py-2" type="submit" style="background: #54D483;">
                 <i class="bi bi-spotify pe-2"></i> Log in with Spotify
             </button>
